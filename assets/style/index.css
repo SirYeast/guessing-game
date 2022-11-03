@@ -16,6 +16,12 @@ main, #results {
     flex-direction: column;
 }
 
+h1 {
+    margin-bottom: 20px;
+    font-size: 38px;
+    font-weight: 700;
+}
+
 h2 {
     margin-bottom: 20px;
     font-size: 32px;
