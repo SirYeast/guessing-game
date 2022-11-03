@@ -72,9 +72,18 @@ form input {
     height: 100%;
     display: none;
     background-color: #000;
-    opacity: 0;
+    animation: fadeIn 0.2s ease-in;
 }
 
 #reset-btn {
     width: 200px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
