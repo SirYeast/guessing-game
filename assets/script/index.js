@@ -43,7 +43,6 @@ guessBtn.addEventListener("mouseup", function () {
 
     if (guess == guessTarget) {
         results.style.display = "flex";
-        results.style.opacity = 1;
         return;
     }
 
@@ -56,5 +55,4 @@ resetBtn.addEventListener("mouseup", function () {
     reset();
 
     results.style.display = "none";
-    results.style.opacity = 0;
 });
