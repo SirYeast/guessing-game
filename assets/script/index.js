@@ -1,5 +1,6 @@
 "use strict";
 
+const main = document.querySelector("main");
 const triesCount = document.querySelectorAll(".tries");
 
 const guessInput = document.getElementById("guess-input");
@@ -43,6 +44,7 @@ guessBtn.addEventListener("mouseup", function () {
 
     if (guess == guessTarget) {
         results.style.display = "flex";
+        main.style.display = "none";
         return;
     }
 
@@ -54,5 +56,6 @@ guessBtn.addEventListener("mouseup", function () {
 resetBtn.addEventListener("mouseup", function () {
     reset();
 
+    main.style.display = "flex";
     results.style.display = "none";
 });
