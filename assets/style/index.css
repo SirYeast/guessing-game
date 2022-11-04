@@ -55,13 +55,24 @@ form input {
     transform: scale(1.2);
 }
 
-#guess-btn, #reset-btn {
+.btn {
     height: 50px;
     border-radius: 20px;
     background-color: #c87613;
     color: #fff;
     font-weight: 700;
     text-align: center;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.btn:hover {
+    background-color: #93570e;
+}
+
+.btn:active {
+    transform: scale(0.8);
 }
 
 #results {
