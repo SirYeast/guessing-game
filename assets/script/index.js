@@ -8,7 +8,11 @@ const guessInput = document.getElementById("guess-input");
 const guessBtn = document.getElementById("guess-btn");
 
 const results = document.getElementById("results");
+const message = document.getElementById("message");
 const resetBtn = document.getElementById("reset-btn");
+
+const messages = ["Impressive", "Nicely done", "You can do better",
+    "Seriously?", "Uhhhhh what?", "\"How are you so bad lol\" - Albert Einstein"];
 
 let guessTarget = 0;
 let tries = 0;
@@ -44,8 +48,17 @@ function validate() {
     }
 
     if (guess == guessTarget) {
+        let len = messages.length;
+        for (let i = 0; i < len; i++) {
+            if (tries <= (i + 1) * 5 || i == len - 1) {
+                message.innerText = messages[i];
+                break;
+            }
+        }
+
         results.style.display = "flex";
         main.style.display = "none";
+
         return;
     }
 
