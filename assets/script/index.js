@@ -3,6 +3,7 @@
 const main = document.querySelector("main");
 const triesCount = document.querySelectorAll(".tries");
 
+const form = document.querySelector("form");
 const guessInput = document.getElementById("guess-input");
 const guessBtn = document.getElementById("guess-btn");
 
@@ -28,7 +29,7 @@ function reset() {
 
 window.addEventListener("load", reset);
 
-guessBtn.addEventListener("mouseup", function () {
+function validate() {
     let guess = parseInt(guessInput.value);
     guessInput.value = "";
 
@@ -51,7 +52,15 @@ guessBtn.addEventListener("mouseup", function () {
     setTries(tries + 1);
 
     guessInput.placeholder = guess < guessTarget ? "Try a higher number" : "Try a lower number";
+};
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent form reset after submit
+
+    validate();
 });
+
+guessBtn.addEventListener("mouseup", validate);
 
 resetBtn.addEventListener("mouseup", function () {
     reset();
