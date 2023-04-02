@@ -1,9 +1,4 @@
 # guessing-game
-A simple guessing game using vanilla JavaScript
+A game using vanilla JavaScript where your goal is to guess the number ranging from 1-50 with the least amount of tries. The amount of tries determines the message that is shown when you guess correctly. This is one of my first JavaScript projects.
 
-### Demo
 Click [here](https://siryeast.github.io/guessing-game/) to play
-
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
