@@ -1,65 +1,54 @@
 @import "reset.css";
 
+:root {
+    --primary-color: rgba(255, 131, 10, 1);
+    --base-border-radius: 10px;
+    --base-vertical-spacing: 20px;
+}
+
+html {
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+}
+
 body {
-    background-color: #0c245b;
+    background-color: #1a1125;
     color: #fff;
 }
 
-body, main {
-    height: 100vh;
+main {
+    display: none;
 }
 
-main, #results {
+h1 {
+    font-size: 38px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-h1 {
-    margin-bottom: 20px;
-    font-size: 38px;
-    font-weight: 700;
-}
-
-h2 {
-    margin-bottom: 20px;
-    font-size: 32px;
-}
-
-form input {
     width: 100%;
-    box-shadow: 0 10px 5px rgb(0 0 0 / 0.2);
-    display: block;
-    text-align: center;
+    min-height: 100vh;
 }
 
-.tries {
-    color: #c87613;
-    font-weight: 700;
-    text-align: center;
-}
-
-#guess-input {
-    margin-bottom: 20px;
-    padding-inline: 10px;
-    height: 50px;
-    border: 2px solid #1871ff;
-    border-radius: 20px;
-    background-color: rgb(0 0 0 / 0.3);
-    transition: border-color 0.2s, transform 0.2s;
-}
-
-#guess-input:focus {
-    border-color: #fff;
-    transform: scale(1.2);
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--base-vertical-spacing);
+    height: 100%;
 }
 
 .btn {
     height: 50px;
-    border-radius: 20px;
-    background-color: #c87613;
-    color: #fff;
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
@@ -67,39 +56,137 @@ form input {
     user-select: none;
 }
 
-.btn:hover {
-    background-color: #93570e;
-}
-
 .btn:active {
-    transform: scale(0.8);
+    transform: scale(0.9);
 }
 
-#results {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
+.gradient {
+    background-color: var(--primary-color);
+    background-image: linear-gradient(45deg, var(--primary-color) 0%, rgba(215, 26, 95, 1) 50%, rgba(33, 37, 98, 1) 100%);
+}
+
+#overlay {
     background-color: #000;
-    animation: fadeIn 0.2s ease-in;
 }
 
-#message {
-    margin-bottom: 25px;
+#result-message {
+    display: none;
+    padding: var(--base-vertical-spacing);
+    border-block: 2px solid var(--primary-color);
+    border-radius: var(--base-border-radius);
+    color: var(--primary-color);
     font-size: 18px;
     font-style: italic;
+    text-align: center;
 }
 
-#reset-btn {
+#difficulty-scroller {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 250px;
+}
+
+.difficulty-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.difficulty-selector:disabled {
+    background-color: #1b1b1b;
+    cursor: default;
+}
+
+.difficulty-selector.prev {
+    border-top-left-radius: var(--base-border-radius);
+    border-bottom-left-radius: var(--base-border-radius);
+}
+
+.difficulty-selector.next {
+    border-top-right-radius: var(--base-border-radius);
+    border-bottom-right-radius: var(--base-border-radius);
+}
+
+#selected-difficulty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 300px;
+    height: 100%;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--base-border-radius);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    user-select: none;
+}
+
+#selected-difficulty i {
+    font-size: 48px;
+}
+
+#selected-difficulty .title {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#start-btn {
     width: 200px;
+}
+
+#instructions {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#guess-form input {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+#tries-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    padding-inline: 10px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+#guess-input {
+    margin-bottom: var(--base-vertical-spacing);
+    padding-inline: 10px;
+    height: 50px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--base-border-radius);
+    background-color: rgb(0 0 0 / 0.2);
+    transition: border-color 0.2s, transform 0.2s;
+    appearance: textfield;
+}
+
+#guess-input:focus {
+    border-color: #fff;
+    transform: scale(1.2);
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }

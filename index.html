@@ -9,25 +9,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/style/index.css">
     <script src="assets/script/index.js" defer></script>
 </head>
 
 <body>
-    <main>
-        <h1>Guess the number from 1-50</h1>
-        <h2>Guesses: <span class="tries"></span></h2>
-        <form>
-            <input type="text" id="guess-input">
-            <input type="button" id="guess-btn" class="btn" value="Guess">
-        </form>
-    </main>
-
-    <div id="results">
-        <h2>You guessed the number in <span class="tries"></span> tries!</h2>
-        <p id="message"></p>
-        <button id="reset-btn" class="btn">Play Again</button>
+    <div id="overlay">
+        <div class="container">
+            <div class="wrapper">
+                <h1>Guessing Game</h1>
+                <p id="result-message"></p>
+                <h2>Select a difficulty</h2>
+                <div id="difficulty-scroller">
+                    <button class="difficulty-selector prev">
+                        <i class="fa-solid fa-caret-left"></i>
+                    </button>
+                    <div id="selected-difficulty"></div>
+                    <button class="difficulty-selector next">
+                        <i class="fa-solid fa-caret-right"></i>
+                    </button>
+                </div>
+                <button id="start-btn" class="btn gradient">Play</button>
+            </div>
+        </div>
     </div>
+    <main>
+        <div class="container">
+            <div class="wrapper">
+                <span id="tries-display" class="tries gradient"></span>
+                <span id="instructions"></span>
+                <form id="guess-form" novalidate autocomplete="off">
+                    <input id="guess-input" type="number">
+                    <input id="guess-btn" type="submit" class="btn gradient" value="Guess">
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
