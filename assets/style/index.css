@@ -1,7 +1,8 @@
 @import "reset.css";
 
 :root {
-    --primary-color: rgba(255, 131, 10, 1);
+    --primary-color: #ff830a;
+    --secondary-color: #1c153b;
     --base-border-radius: 10px;
     --base-vertical-spacing: 20px;
 }
@@ -11,7 +12,7 @@ html {
 }
 
 body {
-    background-color: #1a1125;
+    background-color: var(--secondary-color);
     color: #fff;
 }
 
@@ -19,14 +20,10 @@ main {
     display: none;
 }
 
-h1 {
-    font-size: 38px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
 h2 {
     font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .container {
@@ -45,6 +42,7 @@ h2 {
     flex-direction: column;
     gap: var(--base-vertical-spacing);
     height: 100%;
+    padding: 10px;
 }
 
 .btn {
@@ -62,11 +60,16 @@ h2 {
 
 .gradient {
     background-color: var(--primary-color);
-    background-image: linear-gradient(45deg, var(--primary-color) 0%, rgba(215, 26, 95, 1) 50%, rgba(33, 37, 98, 1) 100%);
+    background-image: linear-gradient(45deg, var(--primary-color) 0%, rgba(215, 26, 95, 1) 50%, var(--secondary-color) 100%);
 }
 
 #overlay {
     background-color: #000;
+    background-image: radial-gradient(circle, rgba(255, 102, 0, 0.3) 0%, transparent 70%);
+}
+
+#logo {
+    max-height: 150px;
 }
 
 #result-message {
@@ -123,6 +126,7 @@ h2 {
     padding: 10px;
     border: 2px solid var(--primary-color);
     border-radius: var(--base-border-radius);
+    background-color: var(--secondary-color);
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
     user-select: none;
 }
@@ -161,7 +165,6 @@ h2 {
     height: 100px;
     padding-inline: 10px;
     border-radius: 50px;
-    color: #fff;
     font-size: 34px;
     font-weight: 700;
 }
