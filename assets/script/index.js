@@ -148,6 +148,4 @@ startBtn.addEventListener("click", function () {
 
     main.style.display = "flex";
     overlay.style.display = "none";
-
-    console.log(guessTarget);
 });
